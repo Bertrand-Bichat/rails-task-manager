@@ -1,0 +1,39 @@
+<div class="container">
+  <h2><%= @task.title %></h2>
+
+  <div class="details">
+    <p><%= @task.details %></p>
+  </div>
+
+  <div class="completed">
+    <% if @task.completed == true %>
+      <i class="las la-check-square"></i>
+      <p class="task_completed">This task is completed</p>
+    <% else %>
+      <i class="las la-stop"></i>
+      <p class="task_completed">This task is not completed yet</p>
+    <% end %>
+  </div>
+
+  <div class="link">
+    <i class="las la-history"></i>
+    <%= link_to "Back to list", tasks_path, :class => 'link' %>
+  </div>
+
+  <div class="footer">
+    <div class="edit">
+      <button name="button" type="submit" class="button_2">
+        <i class="las la-pen"></i> <%= link_to "Edit this task", edit_path(@task), :class => 'button_3' %>
+      </button>
+    </div>
+
+    <div class="detsroy">
+      <i class="las la-trash-alt"></i>
+      <%= link_to "Delete",
+          task_path(@task),
+          method: :delete,
+          :class => 'link',
+          data: { confirm: "Are you sure?" } %>
+    </div>
+  </div>
+</div>

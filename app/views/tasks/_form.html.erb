@@ -1,0 +1,21 @@
+<div class="form">
+  <%= form_for(task) do |f| %>
+    <div class="box_form">
+      <h3><%= f.label :title %></h3>
+      <%= f.text_field :title, :class => 'titles' %>
+    </div>
+    <div class="box_form">
+      <h3><%= f.label :details %></h3>
+      <%= f.text_area :details, :class => 'detail' %>
+    </div>
+    <div class="box_form2">
+      <% unless task.new_record? %>
+        <%= f.check_box :completed, {}, true, false %>
+        <h3><%= f.label :completed %></h3>
+      <% end %>
+    </div>
+    <div class="box_form">
+      <%= f.submit :class => 'button' %>
+    </div>
+  <% end %>
+</div>

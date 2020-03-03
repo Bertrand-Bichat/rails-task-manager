@@ -1,0 +1,19 @@
+<h2>My tasks</h2>
+<% @tasks.each do |task| %>
+<!--   <input id="completed" type="checkbox" disabled="disabled" checked> -->
+  <% if task.completed == true %>
+    <i class="las la-check-square"></i>
+  <% else %>
+    <i class="las la-stop"></i>
+  <% end %>
+  <p class="title"><%= link_to task.title, task_path(task.id), :class => 'link' %></p>
+  <%= link_to task_path(task), method: :delete, :class => 'link', data: { confirm: "Are you sure?" } do %>
+    <i class="las la-trash-alt"></i>
+  <% end %>
+  <br>
+<% end %>
+
+<div class="box_link">
+  <i class="las la-plus"></i>
+  <%= link_to "Add a new task", new_path, :class => 'link' %>
+</div>

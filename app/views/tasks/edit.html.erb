@@ -1,0 +1,8 @@
+<h2>Edit <%= @task.title %></h2>
+
+<%= render 'form', task: @task %>
+
+<div class="link">
+  <i class="las la-history"></i>
+  <%= link_to "Back to list", tasks_path, :class => 'link' %>
+</div>
